@@ -1,0 +1,68 @@
+body {
+  margin: 0;
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Navbar */
+
+nav.navBar {
+  background-color: #F6F6F7;
+   display: flex;
+  flex-direction: row-reverse;
+}
+
+.myCart {
+  border: none;
+  outline:none;
+  color: #888888;
+  cursor: pointer;
+}
+
+.outerProductContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 50px;
+}
+
+.productName {
+  color: #222222;
+  font-size: 1.5rem;
+}
+
+.priceBorder {
+  border-top: 1px solid #CCCCCC;
+  border-bottom: 1px solid #CCCCCC;
+}
+
+.productPrice {
+  color: #222222;
+  font-size: 1rem;
+ 
+}
+
+.productDescription {
+  color: #888888;
+  font-size: 0.8em;
+}
+
+.sizes {
+  color: #888888;
+  font-size: 0.8em;
+}
+
+.sizeButton {
+  padding: 10px;
+  border: none;
+  outline:none;
+}
+
+/* description para and size buttons are color: #888888;  */
