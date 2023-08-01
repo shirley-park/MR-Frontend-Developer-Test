@@ -13,29 +13,46 @@ code {
 }
 
 /* Navbar */
+.navBarContainer {
+  margin-top: 20px;
+  height: 30px;
+  background-color: #F6F6F7;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
 
 nav.navBar {
-  background-color: #F6F6F7;
-   display: flex;
-  flex-direction: row-reverse;
+  width: 20%;
 }
 
 .myCart {
   border: none;
+  background-color: #F6F6F7;
   outline:none;
   color: #888888;
   cursor: pointer;
 }
 
+/* Product details */
 .outerProductContainer {
+  /* width: 80%; */
   display: grid;
   grid-template-columns: 1fr 1fr;
-  margin-top: 50px;
+  gap: 50px;
+  margin: 50px 100px 0px;
+}
+
+img.teeImage {
+  width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
 }
 
 .productName {
   color: #222222;
   font-size: 1.5rem;
+  font-weight: 500;
 }
 
 .priceBorder {
@@ -45,24 +62,91 @@ nav.navBar {
 
 .productPrice {
   color: #222222;
-  font-size: 1rem;
- 
+  font-size: 0.8rem;
 }
 
-.productDescription {
+p.productDescription {
   color: #888888;
-  font-size: 0.8em;
+  font-size: 0.9em;
+  font-weight: 300;
+  line-height: 1.5;
 }
 
+/* sizes */
 .sizes {
+  margin-top: 30px;
   color: #888888;
   font-size: 0.8em;
 }
 
-.sizeButton {
-  padding: 10px;
-  border: none;
-  outline:none;
+span.sizeRequired {
+  color: #C90000;
 }
 
-/* description para and size buttons are color: #888888;  */
+span.sizeSelected {
+  color: #222222;  
+  margin-left: 5px;
+}
+
+.sizeContainer {
+  display: flex;
+  gap: 10px;
+}
+
+/* size radio buttons */
+.center-align{
+  margin-top: -10px;
+} 
+
+input[type="radio"]{
+  visibility: hidden;
+  height: 0;
+  width: 0;
+}
+
+label {
+  display: grid;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 0.9em;
+  font-weight: 300;
+  cursor: pointer;
+  color: #888888;
+  padding: 10px 15px;
+  border: 2px solid #CCCCCC;
+}
+input[type="radio"]:checked + label{
+  border: 2px solid #222222;
+  color: #222222;
+}
+
+
+/* add to cart button */
+.addToCartButton {
+  margin-top: 20px;
+  font-weight: bold;
+  border: 2px solid #222222;
+  background-color: #ffffff;
+  transition: all 0.2ms;
+  padding: 10px 20px;
+}
+
+.addToCartButton:hover {
+  background-color: #222222;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* mini shopping cart */
+.cartContainer {
+  position: absolute;
+  top: 50px;
+  right: 100px;
+  width: 300px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: #ffffff;
+  border: 1px solid #CCCCCC;
+ gap: 20px;
+ padding: 20px;
+}

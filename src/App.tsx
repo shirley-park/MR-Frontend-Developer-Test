@@ -1,6 +1,5 @@
 import React from 'react'
-import logo from './logo.svg'
-import { ProductPage } from './ProductPage'
+import { ProductPage } from './Components/ProductPage'
 
 function App() {
   return (
