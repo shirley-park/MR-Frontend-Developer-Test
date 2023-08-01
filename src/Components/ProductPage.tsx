@@ -1,18 +1,18 @@
 import { useState } from 'react'
 import { Navbar } from './Navbar'
+import { useFetchProducts } from '../hooks/useFetchProducts'
 
 export function ProductPage() {
-  const productSize = ['S', 'M', 'L']
-  //map
-  const sizeData = productSize?.map((size) => ({
-    id: `input_${size}`,
-    label: size,
+  const product = useFetchProducts()
+  const productSizes = product.sizeOptions?.map((size) => ({
+    id: size.id,
+    label: size.label,
   }))
-  let [sizeValue, setSizeValue] = useState('')
-  console.log(sizeValue)
+
+  let [selectedSize, setSelectedSize] = useState('')
 
   const handleSelectSize = (size: string) => {
-    setSizeValue(size)
+    setSelectedSize(size)
   }
   return (
     <div>
@@ -23,35 +23,28 @@ export function ProductPage() {
           <img src="/classic-tee.jpg" alt="classic tee" className="teeImage" />
         </div>
         <div>
-          <h1 className="productName">Classic Tee</h1>
+          <h1 className="productName">{product.title}</h1>
           <div className="priceBorder">
-            <h2 className="productPrice">$75.00</h2>
+            <h2 className="productPrice">${product.price?.toFixed(2)}</h2>
           </div>
-          <p className="productDescription">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur.
-          </p>
+          <p className="productDescription">{product.description}</p>
 
           <p className="sizes">
             SIZE<span className="sizeRequired">*</span>
-            <span className="sizeSelected">{sizeValue}</span>
+            <span className="sizeSelected">{selectedSize}</span>
           </p>
 
           <div className="sizeContainer">
-            {sizeData.map((size) => (
-              <div className="center-align">
+            {productSizes?.map((size) => (
+              <div className="center-align" key={size.id}>
                 <input
                   type="radio"
                   name="size"
-                  id={size.id}
+                  id={size.id.toString()}
                   value={size.label}
                   onClick={() => handleSelectSize(size.label)}
                 />
-                <label htmlFor={size.id}>{size.label}</label>
+                <label htmlFor={size.id.toString()}>{size.label}</label>
               </div>
             ))}
           </div>
