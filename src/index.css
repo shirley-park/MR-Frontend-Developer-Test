@@ -15,18 +15,18 @@ code {
 /* Navbar */
 .navBarContainer {
   margin-top: 20px;
-  height: 30px;
+  height: 35px;
   background-color: #F6F6F7;
   display: flex;
   flex-direction: row-reverse;
-  align-items: center;
+  align-items: center; 
 }
 
 nav.navBar {
   width: 20%;
 }
 
-.myCart {
+button.myCart {
   border: none;
   background-color: #F6F6F7;
   outline:none;
@@ -34,9 +34,21 @@ nav.navBar {
   cursor: pointer;
 }
 
+button.openCart {
+  position: relative;
+  left: 80px;
+  border: 1px solid #CCCCCC;
+  border-bottom: none;
+  height: 36px;
+  background-color: #ffffff;
+  outline:none;
+  color: #222222;
+  cursor: pointer;
+  z-index: 10;
+}
+
 /* Product details */
 .outerProductContainer {
-  /* width: 80%; */
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 50px;
@@ -138,15 +150,25 @@ input[type="radio"]:checked + label{
 }
 
 /* mini shopping cart */
+
 .cartContainer {
-  position: absolute;
-  top: 50px;
-  right: 100px;
+  position: relative;
+  top: 200px;
+}
+
+.cartItemsContainer {
+  position: relative;
+  left: 160px;
+  bottom: 20px;
   width: 300px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   background-color: #ffffff;
   border: 1px solid #CCCCCC;
- gap: 20px;
- padding: 20px;
+  gap: 20px;
+  padding: 20px;
+}
+
+img.cartProductImage {
+  height: 8rem;
 }

@@ -1,25 +1,6 @@
 import { useState } from 'react'
 
 export function Navbar() {
-  const [cartOpen, setCartOpen] = useState(false)
-
-  const toggleOpen = () => {
-    setCartOpen(!cartOpen)
-  }
-
-  return (
-    <div className="navBarContainer">
-      <nav className="navBar">
-        <button className="myCart" onClick={toggleOpen}>
-          My Cart (4)
-        </button>
-        {cartOpen && <Minicart />}
-      </nav>
-    </div>
-  )
-}
-
-export function Minicart() {
   const [cart, setCart] = useState([
     {
       id: 1,
@@ -37,40 +18,62 @@ export function Minicart() {
     },
   ])
 
+  const [cartOpen, setCartOpen] = useState(false)
+
+  const toggleOpen = () => {
+    setCartOpen(!cartOpen)
+  }
+
   return (
-    <div className="cartContainer">
-      <div>
-        {/* <img
-          src="/classic-tee.jpg"
-          alt="classic tee"
-          className="smallProductImage"
-        /> */}
-      </div>
-      <div>
-        <p>Classic Tee</p>
+    <div className="navBarContainer">
+      <nav className="navBar">
+        <button className="myCart" onClick={toggleOpen}>
+          My Cart (4)
+        </button>
+      </nav>
+      {cartOpen && (
+        <>
+          <button className="openCart" onClick={toggleOpen}>
+            My Cart (4)
+          </button>
+          <div className="cartContainer">
+            <div className="cartItemsContainer">
+              <div>
+                <img
+                  src="/classic-tee.jpg"
+                  alt="classic tee"
+                  className="cartProductImage"
+                />
+              </div>
+              <div>
+                <p>Classic Tee</p>
 
-        <p>
-          <span>quantity x</span> $75.00
-        </p>
+                <p>
+                  <span>quantity x</span> $75.00
+                </p>
 
-        <p className="sizes">Size: S</p>
-      </div>
-      <div>
-        {/* <img
-          src="/classic-tee.jpg"
-          alt="classic tee"
-          className="smallProductImage"
-        /> */}
-      </div>
-      <div>
-        <p>Classic Tee</p>
+                <p className="sizes">Size: S</p>
+              </div>
+              <div>
+                <img
+                  src="/classic-tee.jpg"
+                  alt="classic tee"
+                  className="cartProductImage"
+                />
+              </div>
+              <div>
+                <p>Classic Tee</p>
 
-        <p>
-          <span>quantity x</span> $75.00
-        </p>
+                <p>
+                  <span>quantity x</span> $75.00
+                </p>
 
-        <p className="sizes">Size: S</p>
-      </div>
+                <p className="sizes">Size: S</p>
+              </div>
+            </div>
+          </div>
+        </>
+      )}
     </div>
   )
 }
